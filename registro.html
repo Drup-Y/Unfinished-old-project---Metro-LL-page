@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registrarse</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1 class="game-title">Metro: Last Light</h1>
+    <p>Explora el mundo postapocalíptico en este emocionante juego de disparos</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="historia.html">Historia</a></li>
+      <li><a href="jugabilidad.html">Jugabilidad</a></li>
+      <li><a href="galeria.html">Galería</a></li>
+      <li><a href="foro.html">Foro</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="login.html">Iniciar sesión</a></li>
+      <li><a href="registro.html">Registrarse</a></li>
+    </ul>
+  </nav>
+
+  <div id="contenido">
+    <section id="registro">
+      <h2>Registrarse</h2>
+      <form action="procesar_registro.php" method="post">
+        <label for="nombre_usuario">Nombre de usuario:</label><br>
+        <input type="text" id="nombre_usuario" name="nombre_usuario" required><br><br>
+
+        <label for="contrasena">Contraseña:</label><br>
+        <input type="password" id="contrasena" name="contrasena" required><br><br>
+
+        <label for="correo_electronico">Correo electrónico:</label><br>
+        <input type="email" id="correo_electronico" name="correo_electronico" required><br><br>
+
+        <input type="submit" value="Registrarse">
+      </form>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

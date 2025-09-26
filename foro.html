@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Foro - Metro: Last Light</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1 class="game-title">Metro: Last Light</h1>
+    <p>Explora el mundo postapocalíptico en este emocionante juego de disparos</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="historia.html">Historia</a></li>
+      <li><a href="jugabilidad.html">Jugabilidad</a></li>
+      <li><a href="galeria.html">Galería</a></li>
+      <li><a href="foro.html">Foro</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="login.html">Iniciar sesión</a></li> 
+      <li><a href="registro.html">Registrarse</a></li>
+    </ul>
+  </nav>
+
+  <div id="contenido">
+    <section id="foro">
+      <h2>Foro</h2>
+
+      <php> // Corrección: etiqueta de apertura 
+      session_start(); 
+
+      if (isset($_SESSION["nombre_usuario"])) {
+        echo "<p>Bienvenido, " . $_SESSION["nombre_usuario"] . "</p>";
+        // Mostrar formulario para crear nuevo tema
+        echo "<form action='crear_tema.php' method='post'>";
+        echo "<label for='titulo'>Título:</label><br>";
+        echo "<input type='text' id='titulo' name='titulo' required><br><br>";
+        echo "<label for='mensaje'>Mensaje:</label><br>";
+        echo "<textarea id='mensaje' name='mensaje' required></textarea><br><br>";
+        echo "<input type='submit' value='Crear tema'>";
+        echo "</form>";
+      } else {
+        echo "<p>Debes iniciar sesión para acceder al foro.</p>";
+        echo "<p><a href='login.html'>Iniciar sesión</a></p>";
+      }
+    
+
+      <h3>Temas recientes</h3>
+      <ul>
+       ?php // Corrección: etiqueta de apertura <?php
+        // Conexión a la base de datos
+        $servername = "localhost";
+        $username = "tu_usuario";
+        $password = "tu_contraseña";
+        $dbname = "tu_base_de_datos";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        if ($conn->connect_error) {
+          die("Error de conexión: " . $conn->connect_error);
+        }
+
+        // Consulta para obtener los temas del foro
+        $sql = "SELECT * FROM temas ORDER BY fecha_creacion DESC"; 
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+          while($row = $result->fetch_assoc()) {
+            echo "<li>";
+            echo "<a href='tema.php?id=" . $row["id"] . "'>" . $row["titulo"] . "</a>";
+            echo "<p>Creado por: " . $row["autor"] . " el " . $row["fecha_creacion"] . "</p>";
+            echo "</li>";
+          }
+        } else {
+          echo "<p>No hay temas en el foro.</p>";
+        }
+
+        $conn->close();
+        ?> 
+        </php>
+      </ul>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

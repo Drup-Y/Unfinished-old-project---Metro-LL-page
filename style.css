@@ -1,0 +1,298 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url("imagenes/FondoGeneral.jpg") center/cover no-repeat fixed;
+    color: #f5f5f5;
+}
+
+header {
+    background-color:#111;
+    background-size: cover;
+    background-position: center;
+    padding: 10px 0;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #ffcc00;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+nav {
+    background-color: #222;
+    color: #f5f5f5;
+    padding: 5px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Centralizar elementos horizontalmente */
+}
+
+nav ul li {
+    position: relative;
+    margin-right: 20px;
+}
+
+nav a {
+    color: #f5f5f5;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+nav a:hover {
+    background-color: #444;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-align: left;
+    color: #f5f5f5;
+    transition: background-color 0.2s;
+}
+
+.dropdown-content a:hover {
+    background-color: #555;
+}
+
+section {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(31, 31, 31, 0.8);
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #cc6600;
+}
+
+section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #cc6600;
+}
+
+section p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.game-summary {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.game-summary h3 {
+    color: #cc6600;
+}
+
+.feature {
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: space-between;
+    animation: imageUpDown 8s alternate infinite;
+}
+
+.feature img {
+    max-width: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes imageUpDown {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+.final-text {
+    text-align: center;
+    margin-top: 20px;
+    clear: both;
+}
+
+/* Estilos para el slider de imágenes */
+.image-slider {
+  position: relative;
+  width: 100%; 
+  max-width: 800px; 
+  margin: 20px auto; 
+}
+
+.image-slider img {
+  width: 100%;
+  height: auto;
+  display: none; 
+}
+
+.image-slider img:first-child {
+  display: block; 
+}
+
+/* Estilos para los botones del slider */
+.image-slider .prev-btn, /* Añadiendo la clase .image-slider al selector */
+.image-slider .next-btn {  /* Añadiendo la clase .image-slider al selector */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 10; 
+}
+
+.image-slider .prev-btn {
+  left: 10px;
+}
+
+.image-slider .next-btn {
+  right: 10px;
+}
+
+.prev-btn, .next-btn {
+    background-color: rgba(0, 0, 0, 0.8); 
+    border: none;
+    border-radius: 50%; 
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 2; 
+
+    /* Agrega estas líneas para forzar la visibilidad */
+    display: block !important; 
+    opacity: 1 !important;
+}
+
+.prev-btn:hover, .next-btn:hover {
+  background-color: rgba(255, 204, 0, 0.8); /* Cambia el color de fondo al pasar el ratón a amarillo */
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.prev-btn::before {
+  content: ''; /* No hay texto, solo el icono */
+  font-family: 'Arial', sans-serif; 
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url('Imagenes/FlechaBotonesIzquierda.png');
+  background-size: cover;
+}
+
+.next-btn::before {
+  content: ''; /* No hay texto, solo el icono */
+  font-family: 'Arial', sans-serif; 
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url('Imagenes/FlechaBotonesDerecha.png'); 
+  background-size: cover;
+}
+/* ... (resto de tus estilos CSS) ... */
+
+/* Estilos para el foro */
+#foro h2 {
+    /* Estilo para el título del foro */
+    margin-bottom: 10px;
+    color: #cc6600; 
+  }
+  
+  #foro ul {
+    /* Estilo para la lista de temas */
+    list-style: none;
+    padding: 0;
+  }
+  
+  #foro li {
+    /* Estilo para cada tema en la lista */
+    margin-bottom: 15px;
+    border: 1px solid #555;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  #foro a {
+    /* Estilo para los enlaces a los temas */
+    color: #ffcc00;
+    text-decoration: none;
+  }
+  
+  #foro a:hover {
+    /* Estilo para los enlaces al pasar el mouse */
+    text-decoration: underline;
+  }
+  
+  #foro form {
+    /* Estilo para el formulario de crear tema */
+    margin-bottom: 20px;
+  }
+  
+  #foro label {
+    /* Estilo para las etiquetas del formulario */
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  #foro input[type="text"],
+  #foro textarea {
+    /* Estilo para los campos de texto y textarea */
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  

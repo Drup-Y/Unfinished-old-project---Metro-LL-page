@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Metro: Last Light - Página de Inicio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1 class="game-title">Metro: Last Light</h1>
+        <p>Explora el mundo postapocalíptico en este emocionante juego de disparos</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="historia.html">Historia</a></li>
+                <li><a href="jugabilidad.html">Jugabilidad</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="foro.html">Foro</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="login.html">Iniciar sesión</a></li>
+                <li><a href="registro.html">Registrarse</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="contenido">
+        <div id="contenido-secciones">
+            <section id="inicio"> 
+                <h2>Bienvenido a Metro: Last Light</h2>
+                <!-- Agregamos el contenedor de Steam aquí, antes de tu contenido existente -->
+                <div id="steam-info" class="steam-container"></div>
+
+                <p>Sumérgete en la oscura y peligrosa atmósfera del mundo postapocalíptico de Metro: Last Light. En este emocionante juego de disparos en primera persona, te enfrentarás a desafiantes enemigos y explorarás un Moscú devastado por la guerra nuclear.</p>
+
+                <div class="game-summary">
+                    <h3>Resumen del Juego</h3>
+                    <p>Metro: Last Light te lleva a través de una historia emocional y envolvente. Eres Artyom, un superviviente en un mundo subterráneo donde la lucha por la supervivencia es implacable. Debes enfrentarte a criaturas mutantes y grupos enemigos mientras exploras los oscuros túneles y te aventuras en la superficie radiactiva.</p>
+                    <p>El juego combina una jugabilidad inmersiva con una narrativa rica, ofreciéndote decisiones que influirán en el destino de personajes y facciones. Cada acción tiene consecuencias, y deberás elegir sabiamente en quién confiar y cómo actuar para determinar el futuro de la humanidad.</p>
+                </div>
+
+                <div class="feature">
+                    <img src="Imagenes/Metro Last Light Banner.jpg" alt="Metro: Last Light">
+                </div>
+
+                <div class="final-text">
+                    <p>¡Prepárate para una experiencia inmersiva en un mundo devastado en Metro: Last Light!</p>
+                </div>
+            </section> 
+        </div>
+    </div>
+
+    <!-- Script para cargar la información de Steam -->
+    <script>
+        $(document).ready(function() {
+            $("#steam-info").html('<p>Cargando información del juego...</p>');
+            
+            $.ajax({
+                url: 'steam_game_info.php',
+                method: 'GET',
+                success: function(response) {
+                    $("#steam-info").html(response);
+                },
+                error: function(xhr, status, error) {
+                    $("#steam-info").html('<p>Error al cargar la información del juego: ' + error + '</p>');
+                }
+            });
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
